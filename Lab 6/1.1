@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+char* strcpy_array( char dest[], char src[]){
+    int i;
+    for(i=0; i<strlen(src); i++)
+    {
+        dest[i]=src[i];
+    }
+    dest[i]='\0';
+
+    return dest;
+
+
+    }
+
+void main()
+{
+    char array_one[10], array_two[10];
+    printf("Sirul 1 este:");
+    gets(array_one);
+    printf("Sirul 2 este:");
+    gets(array_two);
+
+    strcpy_array(array_one, array_two);
+
+    putchar('\n');
+
+    printf(" Sirul 1 (dupa copiere) este:%s", array_one);
+
+}
