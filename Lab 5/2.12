@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{
+    printf("Sirul este:");
+    char string[25];
+    gets(string);
+
+    putchar('\n');
+
+    char vowels[6]="AEIOU";
+
+    int i,n;
+    n=strlen(string);
+
+    for(i=0; i<n; i++)
+        if(strchr(vowels, string[i]) != NULL )
+            {
+            printf("Locatia primei vocale este: %d", i);
+            break;
+            }
+
+    printf("Sirul nu contine vocale");
+
+    return 0;
+}
