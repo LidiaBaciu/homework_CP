@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void FindMinMax(int vector_aux[10], int *minimum, int *maximum){
+    int i;
+    int min=101;
+    int max=-1;
+
+    for(i=0; i<10; i++)
+        {
+            if(vector_aux[i]<=min) min=vector_aux[i];
+            if(vector_aux[i]>=max) max=vector_aux[i];
+        }
+
+    *minimum=min;
+    *maximum=max;
+    }
+
+int main()
+{
+    int i, vector[10];
+    int n;
+
+    printf("Numarul n este:");
+    scanf("%d", &n);
+
+    for(i=0; i<n; i++)
+    {
+        printf(" Valoarea pentru [%d] este:", i);
+        scanf("%d", &vector[i]);
+    }
+
+    int maximum, minimum;
+
+    FindMinMax(vector, &minimum, &maximum);
+
+    printf("Minumul este: %d", minimum);
+    printf("Maximul este: %d", maximum);
+
+    return 0;
+}
