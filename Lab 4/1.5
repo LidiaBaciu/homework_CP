@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int i;
+    printf("Using a for loop: ");
+    for(i=2;i<=60;i=i+2)
+        {
+        printf("%d", i);
+        putchar(',');
+        }
+
+    int j=2;
+    putchar('\n');
+    printf("Using a while loop: ");
+
+    while(j<=60)
+        {
+        printf("%d", j);
+        putchar(',');
+        j=j+2;
+        }
+
+    int k=2;
+    putchar('\n');
+    printf("Using a do-while loop: ");
+
+    do{
+        printf("%d", k);
+        putchar(',');
+        k=k+2;
+    }while(k<=60);
+
+    return 0;
+}
