@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void split_time(long total_sec, int *hour, int *min, int *sec)
+{
+
+      int x;
+
+        *sec = total_sec % 60;
+        x = total_sec /60;
+        *min = x % 60;
+        *hour = x / 60;
+
+}
+
+int main()
+{
+    long int nr_secunde;
+    int ora;
+    int minutul;
+    int secunda;
+
+    printf("Numarul dat de secunde este:");
+    scanf("%ld", &nr_secunde);
+
+    split_time(nr_secunde, &ora, &minutul, &secunda);
+
+    printf(" ceasul va arata:");
+    putchar('\n');
+    printf("%d", ora);
+    printf(":");
+    printf("%d", minutul);
+    printf(":");
+    printf("%d", secunda);
+
+    return 0;
+}
