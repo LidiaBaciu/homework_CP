@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int i,j,k=1;
+    int n, m;
+    int vector1[20];
+    int vector2[20];
+    int vector3[400];
+    int temp;
+
+    printf("Numarul n este:");
+    scanf("%d", &n);
+    putchar('\n');
+
+    printf("Numarul m este:");
+    scanf("%d", &m);
+    putchar('\n');
+
+    printf("Valorile primul sir sunt:");
+    for(i=1; i<=n; i++)
+        scanf("%d", &vector1[i]);
+
+    putchar('\n');
+
+    printf("Valorile celui de-al doilea sir sunt:");
+    for(i=1; i<=m; i++)
+        scanf("%d", &vector2[i]);
+
+    putchar('\n');
+
+    for(i=1;i<=n;i++)
+        {
+        vector3[k]=vector1[i];
+        k++;
+        }
+    for(i=1;i<=m;i++)
+        {
+        vector3[k]=vector2[i];
+        k++;
+        }
+    k--;
+
+
+    for(i=1;i<=n+m;i++)
+        for(j=1;j<=n+m;j++)
+            if(vector3[i]<vector3[j])
+                {
+                    temp=vector3[i];
+                    vector3[i]=vector3[j];
+                    vector3[j]=temp;
+                }
+
+    for(i=1;i<=k;i++)
+        printf("%d", vector3[i]);
+
+
+    return 0;
+}
