@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{
+    char string[25];
+    printf("Sirul este:");
+    gets(string);
+
+    char cuvant[25];
+    printf("Cuvantul este:");
+    gets(cuvant);
+
+    int counter=0;
+    char *p;
+
+    p=strstr(string, cuvant);
+
+    while(p != 0)
+    {
+        counter++;
+        p=strstr(p+1, cuvant);
+    }
+
+    printf("Cuvantul apare de %d ori", counter);
+
+
+    return 0;
+}
