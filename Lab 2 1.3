@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+
+
+int main()
+{
+    int min=INT_MAX;
+    int max=INT_MIN;
+    int n;
+    int i;
+    int a[100];
+    printf("n=");
+    scanf("%d", &n);
+
+    for(i=0; i<n; i++)
+        {
+        scanf("%d", &a[i]);
+
+        if(min>a[i])
+            min=a[i];
+        if(max<a[i])
+            max=a[i];
+        }
+
+    printf("Maximul este:");
+    printf("%d", max);
+
+    putchar('\n');
+
+    printf("Minimul este:");
+    printf("%d", min);
+
+
+return 0;
+}
