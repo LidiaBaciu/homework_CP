@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+int strend(char string[], char string_two[]){
+    int i;
+    strrev(string_two);
+
+    int n;
+    n=strlen(string);
+
+    for(i=0; i<strlen(string_two); i++)
+        if(string_two[i] != string[n-i-1])
+            return 0;
+        else
+            return 1;
+    }
+int main()
+{
+    printf("Sirul 1 este:");
+    char string[10];
+    gets(string);
+
+    printf("Sirul 2 este:");
+    char string2[10];
+    gets(string2);
+
+    int n=strend(string, string2);
+
+    printf("Valoarea functiei este: %d", n);
+    return 0;
+}
