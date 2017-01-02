@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+void get_first_last_name(char first_name[10], char last_name[10], char ID[20]){
+    first_name[1]='\0';
+    strcat(first_name, last_name);
+    strcpy(ID, first_name);
+}
+
+int main()
+{
+    char first_name[10];
+    char last_name[10];
+    char ID[20];
+
+    printf("Numele este:");
+    gets(first_name);
+    putchar('\n');
+
+    printf("Prenumele este:");
+    gets(last_name);
+    putchar('\n');
+
+    get_first_last_name(first_name, last_name, ID);
+
+    printf("%s", ID);
+
+    return 0;
+}
