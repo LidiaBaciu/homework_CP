@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct mylist {
+
+    int info;
+    struct mylist *link;
+} Node;
+
+Node *_getnode ();
+
+
+int main()
+{
+
+    Node *s = _getnode();
+    s -> link = NULL;
+    Node *t = s;
+    char c;
+
+    while (c !='N' && c != 'n'){
+            printf("\n\t Please enter the data for s info: ");
+            scanf("%d", &s -> info);
+
+            printf("\n\t To add more nodes press Y; else N:");
+            c=getchar();
+            scanf("%c", &c);
+
+            if(c == 'N' || c== 'n')
+            {
+                s -> link = NULL;
+                break;
+            }
+
+            s -> link = _getnode();
+            s = s -> link;
+
+    }
+    s = t;
+
+    while (s != NULL){
+            printf("%d -> ", s -> info );
+            s = s -> link;
+    }
+    printf("null");
+
+    putchar('\n');
+    return 0;
+}
+
+Node *_getnode (){
+
+    return ((Node *) malloc(sizeof (Node)));
+
+}
