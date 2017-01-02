@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int OK=1;
+    int nota[60];
+    int nr_std;
+    int nr_smaller = 0;
+    int i;
+    float percentage;
+
+    printf("The number of the students is:");
+    scanf("%d", &nr_std);
+
+    printf("The grades are:");
+    putchar('\n');
+
+
+    for(i=0; i<nr_std; i++)
+        {
+        scanf("%d", &nota[i]);
+        if(nota[i] < 8)
+            nr_smaller++;
+        if(nota[i] < 5)
+            OK = 0;
+        }
+
+     if(OK==0)
+        {printf("Not all the students passed the exams"); putchar('\n');}
+        else
+            {printf("All the students passed the exams"); putchar('\n');}
+     percentage = (float)nr_smaller*100/nr_std;
+     putchar('\n');
+     printf("%f", percentage);
+     printf("%c", '%');
+     printf("of students have got grades smaller than 8");
+
+    return 0;
+}
