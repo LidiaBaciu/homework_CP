@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int i,j, n;
+    int matrix[5][5];
+    int produs_zona1=1;
+    int produs_zona3=1;
+    int suma_zona2=0;
+    int suma_zona4=0;
+
+    printf("Numarul de linii, respectiv coloane este:");
+    scanf("%d", &n);
+    putchar('\n');
+
+    for(i=0; i<n; i++)
+        for(j=0; j<n; j++)
+        {
+            printf("Elementul [%d][%d] este:", i, j);
+            scanf("%d", &matrix[i][j]);
+        }
+
+    for(i=0; i<n; i++)
+        for(j=0; j<n; j++)
+        {
+            if(i<j && i+j<n-1) //Zona1 - fara diagonale
+                produs_zona1=produs_zona1*matrix[i][j];
+
+                else
+                    if(i>j && i+j<n-1) //Zona2
+                        suma_zona2=suma_zona2+matrix[i][j];
+
+                        else
+                            if(i>j && i+j>n-1) //Zona3
+                                produs_zona3=produs_zona3*matrix[i][j];
+
+                                else
+                                    if(i<j && i+j>n-1) //Zona4
+                                        suma_zona4=suma_zona4+matrix[i][j];
+        }
+    printf("Matricea este:\n");
+    for(i=0; i<n; i++)
+    {
+        for(j=0; j<n; j++)
+            printf("%d", matrix[i][j]);
+        putchar('\n');
+    }
+
+    printf("Produsul din zona 1 este: %d", produs_zona1);
+    putchar('\n');
+
+    printf("Suma din zona 2 este: %d", suma_zona2);
+    putchar('\n');
+
+    printf("Produsul din zona 3 este: %d", produs_zona3);
+    putchar('\n');
+
+    printf("Suma din zona 4 este: %d", suma_zona4);
+
+
+    return 0;
+}
