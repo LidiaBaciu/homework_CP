@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int isPalindrome(char string[25]){
+    char invers[25];
+    strrev(string);
+    strcpy(invers, string);
+    strrev(string);
+
+    if(strcmp(invers,string)==0) return 1;
+        else return 0;
+}
+
+int main()
+{
+    printf("Sirul este:");
+    char string[25];
+    gets(string);
+
+    putchar('\n');
+
+    if(isPalindrome(string)==1) printf("Este palindrom");
+        else printf("Nu este palindrom");
+    return 0;
+}
