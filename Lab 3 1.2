@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int n, x, v[20], mijloc,i,OK=-2;
+
+int cautare(int stanga, int dreapta)
+{
+    if(stanga>dreapta)
+        return -1;
+    else
+    {
+        mijloc=(stanga+dreapta)/2;
+        if(x==v[mijloc])
+            return mijloc;
+        if(x<v[mijloc])
+            return cautare(stanga, mijloc-1);
+        else
+            return cautare(mijloc+1, dreapta);
+    }
+}
+
+
+int main()
+{
+    printf("Numarul n este:");
+    scanf("%d", &n);
+    putchar('\n');
+
+    printf("Numarul x este:");
+    scanf("%d", &x);
+    putchar('\n');
+
+    printf("Dati elementele in ordine crescatoare:");
+    for(i=0; i<n; i++)
+        scanf("%d", &v[i]);
+
+    printf("Elementul a fost gasit pe pozitia:");
+    OK=cautare(0, n-1);
+    printf("%d", OK);
+
+    return 0;
+}
