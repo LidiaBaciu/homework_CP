@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n;
+    float vector[10];
+    int counter=0;
+    int i;
+
+    printf("Numarul n este:");
+    scanf("%d", &n);
+    putchar('\n');
+
+    for(i=0; i<n; i++)
+    {
+        printf("Elementul [%d] este:", i);
+        scanf("%f", &vector[i]);
+    }
+
+    for(i=1; i<n-1; i++)
+        if( vector[i] == (vector[i-1] + vector[i+1])/2)
+            counter++;
+
+    printf("Numarul de elemente care indeplinesc proprietatea este: %d", counter);
+
+    return 0;
+}
