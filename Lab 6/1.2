@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int strlen_array(char array[]){
+    int i=0;
+    while(array[i] != '\0')
+        i++;
+    return i;
+    }
+
+int main()
+{
+    char my_array[10];
+    printf("Sirul este:");
+    gets(my_array);
+
+    int n;
+    n=strlen_array(my_array);
+    printf("Lungimea este:");
+    printf("%d", n);
+    return 0;
+}
