@@ -1,0 +1,88 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int n;
+
+void read(int vector[31][2])
+{
+    int i,j;
+
+    for(i=1;i<=n;i++)
+       for(j=1;j<=2;j++)
+              {
+                  if(j==1)
+                    printf("Introduceti temperatura minima pentru ziua[%d]:", i);
+                    else
+                        printf("Introduceti temperatura maxima pentru ziua[%d]:", i);
+                  scanf("%d", &vector[i][j]);
+              }
+
+
+}
+
+void average_min_Max(int vector[31][2], int *temp_minima, int *temp_maxima)
+{
+    int i;
+
+    int temp_min=0;
+    int temp_max=0;
+
+    for(i=1;i<=n;i++)
+        {
+            temp_min=temp_min+vector[i][1];  //suma temperaturilor minime
+            temp_max=temp_max+vector[i][2];  //suma temperaturilor maxime
+        }
+
+    *temp_minima=temp_min;
+    *temp_maxima=temp_max;
+}
+
+void min_Max_temp(int vector[31][2], int *temp_minima, int *temp_maxima)
+{
+    int i;
+
+    int temp_min=100;
+    int temp_max=-100;
+
+    for(i=1;i<=n;i++)
+        {
+            if(vector[i][1]<temp_min) temp_min=vector[i][1];
+            if(vector[i][2]>temp_max) temp_max=vector[i][2];
+        }
+
+    *temp_minima=temp_min;
+    *temp_maxima=temp_max;
+}
+
+
+int main()
+{
+    int temp_min, temp_max;
+    float min, max;
+    int vector[31][2];
+
+
+    printf("Numarul de zile n este:");
+    scanf("%d", &n);
+    putchar('\n');
+
+    read(vector);
+
+    printf(" The average high and low temperatures for the month are:");
+    average_min_Max(vector, &temp_min, &temp_max);
+    min=(float)temp_min/n;
+    max=(float)temp_max/n;
+    printf("%.2f", min);
+    putchar('\n');
+    printf("%.2f", max);
+
+
+    printf("\n The highest and lowest temperatures for the month are:");
+    min_Max_temp(vector, &temp_min, &temp_max);
+    printf("%d", temp_min);
+    putchar('\n');
+    printf("%d", temp_max);
+
+    return 0;
+}
+
