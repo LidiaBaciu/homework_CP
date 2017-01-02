@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+
+void minmax(int a[10], int *min, int *max)
+{
+    int i;
+    *min=a[0];
+    *max=a[0];
+    for( i=1 ; i<10; i++)
+        {
+            if(a[i]<*min) *min=a[i];
+            if(a[i]>*max) *max=a[i];
+        }
+
+}
+
+int main()
+{
+    int a[10];
+    int i;
+
+    for(i=0; i<10; i++)
+    {
+        printf("Valoarea este:");
+        scanf("%d", &a[i]);
+    }
+
+    int minimum, maximum;
+
+    minmax(a,&minimum,&maximum);
+
+
+
+    printf("minimul este [%d], iar maximul este [%d]", minimum, maximum);
+
+    return 0;
+
+}
