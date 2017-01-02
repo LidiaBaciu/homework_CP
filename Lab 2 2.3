@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main()
+{
+    float a;
+    float b;
+    float c;
+    int delta;
+    float solutia1;
+    float solutia2;
+
+    printf("coeficientul lui X^2 este:");
+    putchar('\n');
+    scanf("%f", &a);
+
+    printf("coeficientul lui X^1 este:");
+    putchar('\n');
+    scanf("%f", &b);
+
+    printf("coeficientul lui X^0 este:");
+    putchar('\n');
+    scanf("%f", &c);
+
+    delta = b*b - 4*a*c;
+
+    if (delta < 0)
+        printf("Ecuatia nu are solutii reale");
+
+        else
+            if (delta==0)
+                {
+                    printf("Ecuatia are doua solutii egale:");
+                    solutia1 = (- b) / 2 * a;
+                    printf("%f", solutia1);
+                }
+                else
+
+                    {
+                    solutia1 = (- b + sqrt(delta)) / 2 * a;
+                    solutia2 = (- b - sqrt(delta)) / 2 * a;
+
+                    printf("Solutiile sunt:");
+                    printf("%f", solutia1);
+                    printf(" si ");
+                    printf("%f", solutia2);
+                    }
+    return 0;
+}
