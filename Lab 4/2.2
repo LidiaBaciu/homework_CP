@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+//2.2b
+
+int power(int x, int n)
+{
+    int i;
+    int p=1;
+
+    for(i=1;i<=n;i++)
+        p=p*x;
+
+    return p;
+}
+
+int main()
+{
+    int a,b,c,d,x;
+    int y;
+    int n;
+
+    printf("Numarul n este:");
+    scanf("%d", &n);
+    putchar('\n');
+
+    printf("Numarul a este:");
+    scanf("%d", &a);
+    putchar('\n');
+
+    printf("Numarul b este:");
+    scanf("%d", &b);
+    putchar('\n');
+
+    printf("Numarul c este:");
+    scanf("%d", &c);
+    putchar('\n');
+
+    printf("Numarul d este:");
+    scanf("%d", &d);
+    putchar('\n');
+
+    printf("Numarul x este:");
+    scanf("%d", &x);
+    putchar('\n');
+
+    y=a*power(x,2*n)+b*power(x,2)+c*x+d;
+
+    printf("Valoarea expresiei y=a*x^(2n)+b*x^2+c*x+d este:");
+
+    printf("%d", y);
+    putchar('\n');
+
+    return 0;
+}
