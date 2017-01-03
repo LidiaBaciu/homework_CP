@@ -72,11 +72,15 @@ int main(){
     int i;
     Lista->nextElement = NULL;
 
+    printf("Indexul la care vrei sa adaugi este:");
+    int index;
+    scanf("%d", &index);
+
     for(i = 0; i < 5; i++)
         addToEnd(Lista);
     showList(Lista);
 
-    addToNumber(Lista, 5);
+    addToNumber(Lista, index);
     showList(Lista);
 return 0;
 }
