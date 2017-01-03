@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+//baza b in baza 10
+
+int main()
+{
+    int baza;
+    printf("Baza din care doriti sa convertiti este:");
+    scanf("%d", &baza);
+
+    int numarul;
+    printf("Numarul pe care doriti sa il convertiti este:");
+    scanf("%d", &numarul);
+
+    int s=0, p=1;
+
+    while(numarul != 0)
+    {
+
+        s=s+numarul%10*p;
+        p=p*baza;
+        numarul=numarul/10;
+    }
+    printf("Numarul in baza %d este: %d", baza, s);
+    return 0;
+}
