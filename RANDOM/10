@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+//Sa se afiseze toti termenii din sirul lui Fibo <= decat o valoare data n
+//20: 1 1 2 3 5 8 13
+int main()
+{
+    printf("Numarul n este:");
+    int n;
+    scanf("%d", &n);
+
+    int a,b;
+    a=1;
+    b=1;
+
+    printf("%d", a);
+    putchar(' ');
+    printf("%d", b);
+    putchar(' ');
+
+
+    while(a+b<=n){
+        int c;
+        c=a+b;
+        a=b;
+        b=c;
+        printf("%d", c);
+        putchar(' ');
+
+    }
+    return 0;
+}
