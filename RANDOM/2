@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include<string.h>
+
+/*Se citeste de la tast un cuvant.
+Sa se afiseze toate rotirile la dreapta ale acestuia*/
+
+int main()
+{
+    char s[100], aux[100];
+    int i,n;
+    gets(s);
+    n=strlen(s);
+
+    for(i=0; i<n ; i++){
+        strcpy(aux, s+n-1);
+        s[n-1]=NULL;
+        strcat(aux, s);
+        strcpy(s, aux);
+        printf("%s", s);
+        putchar('\n');
+    }
+
+    return 0;
+}
