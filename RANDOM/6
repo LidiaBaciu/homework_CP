@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+//se citesc n cuv. sa se det cate din ultimele au ca prefix primul cuv
+
+int main()
+{
+    char s1[20], s2[20];
+    int n;
+    int m,count=0,i;
+
+    printf("Numarul de cuvinte este:\n");
+    scanf("%d", &n);
+
+
+    printf("Primul cuvant este:\n");
+    gets(s1);
+    m=strlen(s1);
+
+    for(i=1;i<n;i++)
+    {
+        printf("Cuvantul %d este", i);
+        putchar('\n');
+        gets(s2);
+        s2[m]='\0';
+        if(strcmp(s1,s2)==0)
+            count++;
+    }
+    printf("Numarul de cuvinte este: %d", count);
+    return 0;
+}
