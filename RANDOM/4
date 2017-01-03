@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+//cea mai lunga secventa de consoane
+int main()
+{
+    char s[100], voc[]="aeiou";
+    char aux[100];
+    int i=0, max=0, j;
+
+    printf("Sirul este:");
+    gets(s);
+
+    while(i<strlen(s))
+        if(strchr(voc, s[i]) != '\0')
+            i++;
+        else
+        {
+            for(j=i+1; j<strlen(s); j++)
+                if(strchr(voc, s[j]) != '\0')
+                    break;
+            if(j-i>max)
+            {
+                max=j-i;
+                strcpy(aux, s+i);
+                aux[j-i]='\0';
+            }
+        i=j+1;
+        }
+    printf("Cea mai lunga secventa este %s", aux);
+    return 0;
+}
