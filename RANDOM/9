@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+//cate nr sunt rotunde ( nr de cifre de 0 = nr de cifre de 1 in baza 2
+int main()
+{
+    int nrDeNr;
+    int b, t=0, i,p,aux,m;
+    int x;
+
+    printf("Numarul de numere este\n");
+    scanf("%d", &nrDeNr);
+
+    printf("Baza este\n");
+    scanf("%d", &b);
+
+    for(i=0; i<nrDeNr; i++)
+    {
+        printf("Numarul este:");
+        scanf("%d", &x);
+        p=1;
+        aux=x;
+        m=0;
+
+        while(aux!=0)
+        {
+            int r;
+            r=aux%b;
+            m=m+p*r;
+            p=p*10;
+            aux=aux/10;
+        }
+        int t1, t0;
+        t1=0;
+        t0=0;
+
+        while(x!=0)
+        {
+            if(x%10==1) t1++;
+                else t0++;
+            x=x/10;
+        }
+
+        if(t1==t0) t++;
+
+    }
+    if(t==0)
+        printf("Nu exista\n");
+        else
+            printf("Numarul de numere rotunde este: %d", t);
+    return 0;
+}
