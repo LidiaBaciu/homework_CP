@@ -1,0 +1,84 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct lista{
+
+    int value;
+    struct lista* nextElement;
+
+};
+
+
+
+void addToEnd(struct lista* modifier){
+
+    int value;
+    struct lista* newElement = malloc( sizeof(struct lista) );
+
+    while(modifier->nextElement != NULL)
+        modifier = modifier->nextElement;
+
+    printf("\nIntroduceti o valoare(adaugare la final): ");
+    scanf("%d", &value);
+
+    modifier->nextElement = newElement;
+    newElement->nextElement = NULL;
+    newElement->value = value;
+
+
+}
+
+void showList(struct lista* modifier){
+
+    printf("\nLista: ");
+
+    while(modifier->nextElement != NULL){
+
+        modifier = modifier->nextElement;
+        printf("%d ", modifier->value);
+
+
+    }
+
+    printf("\n");
+
+}
+
+
+int Sum(struct lista* modifier){
+
+    int sum = 0;
+    while(modifier->nextElement != NULL)
+
+        {
+            modifier = modifier->nextElement;
+            sum = sum + modifier->value;
+        }
+    return sum;
+    }
+
+
+
+int main(){
+
+
+    struct lista *Lista = malloc( sizeof(struct lista) );
+    int i;
+    Lista->nextElement = NULL;
+
+    int sum=0;
+
+    for(i = 0; i < 5; i++)
+    {
+        addToEnd(Lista);
+        sum = sum + Lista->value;
+    }
+
+    showList(Lista);
+    int s = Sum(Lista);
+
+    printf("Suma este: %d", s);
+
+return 0;
+}
