@@ -10,19 +10,21 @@ int main()
 
     putchar('\n');
 
-    char vowels[6]="AEIOU";
+    char vowels[10]="AEIOUaeiou";
 
     int i,n;
+    int flag=0;
     n=strlen(string);
 
     for(i=0; i<n; i++)
         if(strchr(vowels, string[i]) != NULL )
             {
             printf("Locatia primei vocale este: %d", i);
+            flag=1;
             break;
             }
-
-    printf("Sirul nu contine vocale");
+    if(flag==0)
+        printf("Sirul nu contine vocale");
 
     return 0;
 }
