@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+//Se dau 2 cuvinte. Sa se afiseze toate sufixele primului cuv care sunt prefixe pt al 2lea cuvant
+
+int main()
+{
+    char s1[20], s2[20];
+    printf("Primul sir este:");
+    gets(s1);
+    printf("Al doilea sir este:");
+    gets(s2);
+
+    int n;
+    int OK=0;
+
+    if(strlen(s1) < strlen(s2))
+    {
+        n=strlen(s1);
+        s2[n]='\0';
+    }
+        else
+        {
+            n=strlen(s2);
+            strcpy(s1, s1+strlen(s1)-strlen(s2));
+        }
+
+    while( n !=0)
+    {
+        if(strcmp(s1,s2)==0)
+        {
+            OK=1;
+            printf("Sirul este: %s", s1);
+            putchar('\n');
+        }
+        strcpy(s1, s1+1);
+        s2[n-1]='\0';
+        n--;
+    }
+    if(OK==0)
+        printf("Nu");
+    return 0;
+}
