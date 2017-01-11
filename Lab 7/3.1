@@ -85,24 +85,36 @@ int main(){
 
 
     struct lista *Lista = malloc( sizeof(struct lista) );
-    int i;
+
     Lista->nextElement = NULL;
 
-    i = 0;
-    char character;
-    character = 'y';
+    char c;
 
-    while( character != 'n' ){
-        printf("\t Gradul nodului %d este", i);
-        i++;
-        addToEnd(Lista);
+    struct lista *Aux = malloc( sizeof(struct lista) );
 
-        printf("\n\tPress y if you want to add another node. Press n otherwise.\n");
-        scanf("%c", &character);
-        if(character == 'n')
-            Lista->nextElement = NULL;
+    Aux = Lista;
+    while (c !='N' && c != 'n'){
+            printf("\n\t Please enter the data: ");
+            scanf("%d", &Lista->value);
+
+            printf("\n\t To add more nodes press Y; else N:");
+            c=getchar();
+            scanf("%c", &c);
+
+            if(c == 'N' || c== 'n')
+            {
+                Lista->nextElement = NULL;
+                break;
+            }
+
+            Lista->nextElement = malloc(sizeof(struct lista) );
+            Lista = Lista->nextElement;
+
 
     }
+
+    Lista = Aux;
+
 
     showList(Lista);
 
