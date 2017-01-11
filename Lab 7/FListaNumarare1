@@ -1,0 +1,92 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/*Să se scrie o funcție C care determină câte perechi de elemente consecutive egale sunt memorate într-o lista simplu înlănțuită.
+Dacă lista contine valorile (1 6 6 4 5 5 5 1) funcția va returna valoarea 3.
+*/
+struct lista{
+
+    int value;
+    struct lista* nextElement;
+
+};
+
+
+void addToEnd(struct lista* modifier){
+
+    int value;
+    struct lista* newElement = malloc( sizeof(struct lista) );
+
+    while(modifier->nextElement != NULL)
+        modifier = modifier->nextElement;
+
+    printf("\nIntroduceti o valoare(adaugare la final): ");
+    scanf("%d", &value);
+
+    modifier->nextElement = newElement;
+    newElement->nextElement = NULL;
+    newElement->value = value;
+
+
+}
+
+void showList(struct lista* modifier){
+
+    printf("\nLista: ");
+
+    while(modifier->nextElement != NULL){
+
+        modifier = modifier->nextElement;
+        printf("%d ", modifier->value);
+
+
+    }
+
+    printf("\n");
+
+}
+
+int howManyPairs(struct lista* modifier){
+    int counter, value, max;
+
+    counter = 0;
+    max = -1;
+
+
+    while(modifier->nextElement->nextElement != NULL){
+        modifier = modifier->nextElement;
+        value = modifier->value;
+
+        while(value == modifier->nextElement->value){
+            modifier = modifier->nextElement;
+            counter++;
+        }
+
+        if(counter > max)
+            max = counter;
+
+    }
+
+return max;
+
+}
+
+
+int main(){
+
+
+    struct lista *Lista = malloc( sizeof(struct lista) );
+    int i;
+    Lista->nextElement = NULL;
+
+    for(i = 0; i < 8; i++)
+        addToEnd(Lista);
+    showList(Lista);
+
+    int var;
+    var = howManyPairs(Lista);
+
+    printf("Lista contine %d perechi de elemente consecutive.", var);
+
+return 0;
+}
