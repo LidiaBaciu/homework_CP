@@ -1,0 +1,116 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct lista{
+
+    int value;
+    struct lista* nextElement;
+
+};
+
+void addToFirst(struct lista* modifier){
+
+    int value;
+    struct lista* newElement = malloc( sizeof(struct lista) );
+
+    printf("\nIntroduceti o valoare(adaugare la inceput): ");
+    scanf("%d", &value);
+
+    newElement->nextElement = modifier->nextElement;
+    modifier->nextElement = newElement;
+    newElement->value = value;
+
+}
+
+void addToEnd(struct lista* modifier){
+
+    int value;
+    struct lista* newElement = malloc( sizeof(struct lista) );
+
+    while(modifier->nextElement != NULL)
+        modifier = modifier->nextElement;
+
+    printf("\nIntroduceti o valoare(adaugare la final): ");
+    scanf("%d", &value);
+
+    modifier->nextElement = newElement;
+    newElement->nextElement = NULL;
+    newElement->value = value;
+
+
+}
+
+
+void showList(struct lista* modifier){
+
+    printf("\nLista: ");
+
+    while(modifier->nextElement != NULL){
+
+        modifier = modifier->nextElement;
+        printf("%d ", modifier->value);
+
+
+    }
+
+    printf("\n");
+
+}
+
+int Counter_nodes(struct lista* modifier)
+{
+    int count = 0;
+    while(modifier->nextElement != NULL){
+
+        modifier = modifier->nextElement;
+        count++;
+    }
+    return count;
+}
+
+int number_leaves(struct lista* modifier){
+    int counter = 0;
+    while(modifier->nextElement != NULL){
+
+        modifier = modifier->nextElement;
+        if (modifier->value == 0)
+            counter++;
+    }
+    return counter;
+}
+
+int main(){
+
+
+    struct lista *Lista = malloc( sizeof(struct lista) );
+    int i;
+    Lista->nextElement = NULL;
+
+    i = 0;
+    char character;
+    character = 'y';
+
+    while( character != 'n' ){
+        printf("\t Gradul nodului %d este", i);
+        i++;
+        addToEnd(Lista);
+
+        printf("\n\tPress y if you want to add another node. Press n otherwise.\n");
+        scanf("%c", &character);
+        if(character == 'n')
+            Lista->nextElement = NULL;
+
+    }
+
+    showList(Lista);
+
+    int count = Counter_nodes(Lista);
+    printf("\n\t Graful are %d noduri.", count);
+
+    int leaves = number_leaves(Lista);
+    printf("\n\t Graful are %d frunze.", leaves);
+
+return 0;
+}
