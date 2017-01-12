@@ -49,7 +49,7 @@ void catList(struct lista* modifier1, struct lista* modifier2){
         modifier1 = modifier1->nextElement;
     }
 
-    modifier1->nextElement = modifier2;
+    modifier1->nextElement = modifier2->nextElement;
 
 }
 
