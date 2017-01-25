@@ -2,7 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Write a C program that reads your first and last names and than converts  them to upper-case and lower-case letters. The results will be printed to standard output console 
+/* Write a C program that reads your first and last names and than converts  them to upper-case and lower-case letters. 
+The results will be printed to standard output console. */
+
 int main()
 {
     char nume[20], prenume[20];
