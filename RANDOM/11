@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+int main()
+{
+    char nume[20], prenume[20];
+    int i;
+    printf("Introduceti numele:\n");
+    gets(nume);
+
+    printf("Introduceti prenumele:\n");
+    gets(prenume);
+
+    for(i=0;i<strlen(nume);i++)
+        printf("%c",toupper(nume[i]));
+
+    printf("\n");
+
+    for(i=0;i<strlen(prenume);i++)
+        printf("%c",toupper(prenume[i]));
+
+    printf("\n");
+
+    for(i=0;i<strlen(nume);i++)
+        printf("%c",tolower(nume[i]));
+
+    printf("\n");
+
+    for(i=0;i<strlen(prenume);i++)
+        printf("%c",tolower(prenume[i]));
+
+        return 0;
+}
