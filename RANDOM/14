@@ -1,0 +1,34 @@
+#include <iostream>
+#include <string.h>
+
+using namespace std;
+
+int main()
+{
+    char sir_caractere[25];
+
+    cout << "Sirul pe care il doresti este:" << endl;
+
+    cin.get(sir_caractere, 25);
+
+    int lungime = strlen(sir_caractere);
+
+    int i;
+
+    for(i=0; i < lungime-1; i++)
+    {
+        if(sir_caractere[i] == ' ' && sir_caractere[i+1] == ' ')
+            {
+                strcpy(sir_caractere+i, sir_caractere+i+1);
+                i--;
+            }
+    }
+    if(sir_caractere[0] == ' ')
+        strcpy(sir_caractere, sir_caractere+1);
+
+    if(sir_caractere[lungime-1] == ' ')
+        strcpy(sir_caractere + lungime -1, sir_caractere + lungime);
+
+    cout<<sir_caractere << " null";
+    return 0;
+}
