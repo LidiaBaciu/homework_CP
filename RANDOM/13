@@ -1,0 +1,64 @@
+
+//Sa se ordoneze crescator elementele de pe liniile unei matrice. 
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int a[20][20], numarul_linii, numarul_coloane;
+
+    cout << "Numarul de linii este: ";
+    cin >> numarul_linii;
+    cout << endl;
+
+    cout << "Numarul de coloane este: ";
+    cin >> numarul_coloane;
+    cout << endl;
+
+    int i, j;
+
+    for( i = 0 ; i < numarul_linii ; i++)
+        for( j = 0; j < numarul_coloane ; j++)
+    {
+        cout << "Elementul de pe pozitia " << i << ' ' << j << " este: ";
+        cin >> a[i][j];
+        cout << endl;
+    }
+
+
+    int auxiliar;
+
+    cout<<"Matricea inainte de a fi sortata crescator (pe linii)" << endl;
+    for(i=0; i<numarul_linii; i++){
+        for(j=0; j<numarul_coloane; j++)
+            cout<<a[i][j]<< ' ';
+        cout<<endl;
+    }
+
+    cout << endl;
+
+
+    for(i=0; i<numarul_linii; i++)
+        for(j=0; j<numarul_coloane - 1; j++)
+            if(a[i][j] > a[i][j+1])
+                {
+                    auxiliar = a[i][j];
+                    a[i][j] = a[i][j+1];
+                    a[i][j+1] = auxiliar;
+                    i--;
+                }
+
+
+    cout << "Matricea dupa ce a fost sortata ( pe linii )" << endl;
+
+
+    for(i=0; i<numarul_linii; i++){
+        for(j=0; j<numarul_coloane; j++)
+            cout<<a[i][j]<< ' ';
+        cout<<endl;
+    }
+    return 0;
+}
+
