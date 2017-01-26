@@ -1,0 +1,73 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+
+/*Let a be a bi-dimensional array.
+A saddle point in a given array a is an element a[i0,j0] which is, simultaneously, the maximum of its column and minimum
+of its row, or vice versa. Design a program to locate and print the saddle point(s) of the given matrix a (if there is any).
+*/
+
+int main()
+{
+    int matrix[10][10], line, column;
+    int max_column;
+    int min_line;
+    int counter = 0;
+    int poz_min, poz_max;
+
+    printf("Numarul de linii = \n");
+    scanf("%d", &line);
+
+    printf("Numarul de coloane = \n");
+    scanf("%d", &column);
+
+    int i, j;
+
+    for(i=0; i<line; i++)
+        for(j=0; j<column; j++)
+        {
+            printf("Elementul de pe pozitia [%d][%d] este:", i, j);
+            scanf("%d", &matrix[i][j]);
+        }
+
+
+    for(i=0; i<line; i++)
+        {
+            max_column = INT_MIN;
+
+
+            for(j=0; j<column; j++){
+                min_line = INT_MAX;
+
+                if(matrix[i][j] < min_line)
+                        {
+                            min_line = matrix[i][j];
+                            poz_min = j;
+                        }
+                }
+            int aux_line;
+            aux_line = i;
+
+            printf("min de pe linie este:%d \n", min_line);
+            while(aux_line != line){
+                    if(matrix[aux_line][i] > max_column)
+                        {
+                            max_column = matrix[aux_line][i];
+                            poz_max = aux_line;
+                        }
+                    aux_line++;
+            }
+            printf("max de pe coloana este:%d \n", max_column);
+            if(max_column == min_line)
+                {
+                    counter ++;
+                    printf("Un punct sa a fost gasit pe pozitia [%d][%d]\n", poz_min, poz_max);
+
+                }
+        }
+    if(counter == 0)
+        printf("Nu exista niciun punct sa.");
+
+
+    return 0;
+}
