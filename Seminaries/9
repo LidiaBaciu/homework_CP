@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int array[10];
+    int x;
+    printf("Enter numbers (ending in 0)");
+    scanf("%d", &x);
+    array[1] = x;
+    int poz = 2;
+
+    while(x != 0){
+        scanf("%d", &x);
+        if(x != 0){
+            array[poz] = x;
+            poz ++;
+        }
+
+    }
+
+    int i;
+    printf("The vector is: \n");
+    for(i = 1; i < poz; i++)
+        {
+            printf("%d", array[i]);
+            putchar(' ');
+        }
+
+    int target;
+    printf("Enter the position of the target: \n");
+    scanf("%d", &target);
+
+    int number;
+    int difference;
+    number = array[target];
+
+    printf("Differences: ");
+    for(i = 1; i < poz; i++)
+    {
+        difference = array[i] - number;
+        printf("%d", difference);
+        putchar(' ');
+
+    }
+    return 0;
+}
