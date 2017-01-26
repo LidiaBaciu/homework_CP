@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/* Determine the exponent of any prime p in the decomposition of n!, the factorial of a given number n. */
+
+int main()
+{
+    int n;
+
+    printf("Numarul n este\n");
+    scanf("%d", &n);
+
+    int p;
+    printf("Numarul p este\n");
+    scanf("%d", &p);
+
+    printf("n! este:");
+    int i;
+    int product = 1;
+
+    for(i=1; i<=n; i++)
+        product = product * i;
+
+    printf("%d\n", product);
+
+    int counter = 0;
+    int aux = product;
+
+    while(product % p ==0){
+        counter++;
+        product = product/p;
+    }
+
+    printf("Numarul %d apare de %d ori in compozitia lui %d", p, counter, aux);
+
+
+    return 0;
+}
