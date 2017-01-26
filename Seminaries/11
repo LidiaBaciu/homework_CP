@@ -1,0 +1,66 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{
+    char password[25];
+
+    printf("Enter the password that you want.\n");
+    gets(password);
+
+    int lenght;
+    lenght = strlen(password);
+
+    if( lenght < 6 || lenght > 12){
+        printf("REJECTED because the lenght is not appropiate");
+        return 0;
+    }
+
+    int i;
+    int OK_lower = 0;
+    int OK_capital = 0;
+    int OK_numerical = 0;
+    int ON = 0;
+
+    for( i = 0; i < lenght ; i++){
+        if(password[i] >= 'a' && password[i] <= 'z')
+            OK_lower = 1;
+        if(password[i] >= 'A' && password[i] <= 'Z')
+            OK_capital = 1;
+        if(password[i] >= '0' && password[i] <= '9')
+            OK_numerical = 1;
+    }
+
+    if(OK_capital == 0 && OK_lower == 1 && OK_numerical ==1)
+        ON = 1;
+
+    if( ON == 0)
+    {
+        printf("REJECTED because there exists a capital letter");
+        return 0;
+    }
+    int j;
+
+    for(i = 0; i < lenght - 1 ; i++){
+        for(j=i+1; j < lenght ; j++){
+            if(password[i] == password[j])
+            {
+                if(j-i ==1)
+                    {
+                        printf("REJECTED because there exists a repetitive sequence at d=1");
+                        return 0;
+                    }
+        }       else
+                    {
+                        if(password[i+1] == password[j+1])
+                        {
+                            printf("REJECTED because there exists a repetitive sequence");
+                            return 0;
+                        }
+                    }
+    }
+    }
+
+    return 1;
+}
