@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+
+int main()
+{
+    int n;
+    int a[20];
+    int rank = -1;
+    int max = 1;
+    int lenght;
+    int poz;
+
+    printf("Numarul de elemente este: ");
+    scanf("%d", &n);
+
+    printf("Elementele sunt: \n");
+    int i;
+
+    for(i=1; i<=n; i++){
+        printf("Elementul de pe pozitia %d este: ", i);
+        scanf("%d", &a[i]);
+    }
+
+
+    for(i=1; i <= n-1; i++){
+        lenght = 0;
+        while(a[i] < a[i+1])
+            {
+            lenght++;
+            if(lenght == 1)
+                rank = i;
+            i++;
+            }
+            if(lenght > max)
+                {
+                    max = lenght;
+                    poz = rank;
+                }
+    }
+
+
+
+    printf("The rank is: %d", poz);
+    printf("\nThe lenght is: %d", max);
+
+
+
+    return 0;
+}
