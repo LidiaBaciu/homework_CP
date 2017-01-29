@@ -1,0 +1,69 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int change;
+    printf("\t The amount of change to make is: ");
+    scanf("%d", &change);
+
+    int number_penies;
+    printf("\t The amount of penies(.1) available is: ");
+    scanf("%d", &number_penies);
+
+    int number_nickels;
+    printf("\t The amount of nickels(.5) available is: ");
+    scanf("%d", &number_nickels);
+
+    int number_dimes;
+    printf("\t The amount of dimes(.10) available is: ");
+    scanf("%d", &number_dimes);
+
+    int number_quarters;
+    printf("\t The amount of quarters(.25) available is: ");
+    scanf("%d", &number_quarters);
+
+    int how_many_penies = 0;
+    int how_many_nickels = 0;
+    int how_many_dimes = 0;
+    int how_many_quarters = 0;
+
+    int comp = change;
+
+    while(change!=0 && number_dimes !=0 && number_nickels != 0 && number_penies !=0 && number_quarters != 0){
+        while(number_quarters !=0 || change != 0)
+        {
+            how_many_quarters++;
+            number_quarters--;
+            change = change - 25;
+        }
+        while(number_dimes!=0 || change !=0)
+        {
+            how_many_dimes++;
+            number_dimes--;
+            change = change - 10;
+        }
+        while(number_nickels != 0 || change !=0)
+        {
+            how_many_nickels ++;
+            number_nickels--;
+            change = change - 5;
+        }
+
+        while(number_penies!=0 || change !=0)
+        {
+            how_many_penies ++;
+            number_penies--;
+            change = change - 1;
+        }
+
+
+    }
+
+    if(comp == change)
+        printf("Not enough change");
+    else
+        printf("There are %d quarters, %d dimes, %d pennies and %d nickels.", number_quarters, number_dimes, number_penies, number_nickels);
+
+    return 0;
+}
