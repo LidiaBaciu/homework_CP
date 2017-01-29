@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdfix.h>
+#include <time.h>
+
+
+/* a.	Write a program that inputs an integer n and simulates the tossing of a fair coin n times, outputting HEADS or TAILS for each toss.  */
+
+
+
+int main()
+{
+    int n, *a;
+    printf("Numarul n este: ");
+    scanf("%d", &n);
+
+    a = (int*)(malloc(n));
+
+    int i;
+
+    for(i=0; i< n ;i++)
+        a[i] = 0;
+
+    int k =0;
+    srand('\0');
+
+    while( k < n){
+        int q = rand() %2;
+        if(q == 0)
+            printf("HEADS \n");
+        else
+            printf("TAILS \n");
+        k++;
+    }
+    return 0;
+}
