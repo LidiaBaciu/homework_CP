@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+int main()
+{
+    int vector[20];
+    int n;
+    printf("n= ");
+    scanf("%d", &n);
+
+    int i;
+    int max=INT_MIN;
+    int min=INT_MAX;
+
+    for(i=0; i<n; i++){
+        printf("\nValoarea de pe pozitia %d este: ", i);
+        scanf("%d", &vector[i]);
+    }
+
+    for(i=0; i<n; i++){
+        if(max < vector[i]) max = vector[i];
+        if(min > vector[i]) min = vector[i];
+    }
+
+    for(i=0; i<n; i++){
+        if(vector[i] == max) printf("\nMaximul se gaseste pe pozitiile/pozitia %d ", i);
+        if(vector[i] == min) printf("\nMinimul se gaseste pe pozitiile/pozitia %d ", i);
+    }
+    return 0;
+}
