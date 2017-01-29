@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+#define M_PI 3.14159265358979323846
+
+//For each value of N, print out how many digits are in N!.
+
+int digits_in_factorial(int n){
+    return floor((n+0.5)*log(n) - n+ 0.5*log(2*M_PI))/log(10) + 1;
+}
+
+int main()
+{
+    int n;
+    printf("Numarul n este : ");
+    scanf("%d", &n);
+
+    int counter = 0;
+
+    counter = digits_in_factorial(n);
+
+    printf("n! are %d cifre", counter);
+
+    return 0;
+}
