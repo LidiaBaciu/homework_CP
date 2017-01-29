@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int A[10], B[10];
+    int sum = 0;
+    int i;
+    int n;
+    printf("The number of lines A and B have is : ");
+    scanf("%d", &n);
+
+    printf("Elementele de pe coloana A sunt: \n");
+    for(i=0; i<n; i++){
+        printf("Elementul %d este: ", i);
+        scanf("%d", &A[i]);
+    }
+    printf("Elementele de pe coloana B sunt: \n");
+    for(i=0; i<n; i++){
+        printf("Elementul %d este: ", i);
+        scanf("%d", &B[i]);
+    }
+    for(i=0; i < n; i++)
+    {
+        if(A[i]%2 == 1) sum = sum + B[i];
+    }
+
+    printf("Suma este: %d", sum);
+    return 0;
+}
