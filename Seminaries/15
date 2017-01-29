@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int sum_digits(int number){
+    int s;
+
+    s = 0;
+
+    while( number != 0){
+        s = s + number%10;
+        number = number / 10;
+    }
+
+    return s;
+}
+
+int main()
+{
+    int n;
+    printf("Numarul n este= \n");
+    scanf("%d", &n);
+
+    int river1 = 1;
+    int river3 = 3;
+    int river9 = 9;
+
+    while( n != river1 && n != river3 && n != river9){
+        while(river1 <= n)
+            river1 = river1 + sum_digits(river1);
+
+        while(river3 <= n)
+            river3 = river3 + sum_digits(river3);
+
+        while(river9 <= n)
+            river9 = river9 + sum_digits(river9);
+
+        if(river1 > n || river3 > n || river9 >n)
+            n = n + sum_digits(n);
+    }
+
+    if(river1 == n)
+        printf("First meets river 1 at %d", n);
+    if(river3 == n)
+        printf("First meets river 3 at %d", n);
+    if(river9 == n)
+        printf("First meets river 9 at %d", n);
+
+
+    return 0;
+}
