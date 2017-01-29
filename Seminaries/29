@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int palindrome_string( char s[80]){
+
+    char aux[80];
+    strcpy(aux, s);
+    strrev(s);
+
+    if(strcmp(s,aux) == 0)
+        return 1;
+
+    return 0;
+    }
+
+
+int main()
+{
+    char string[80];
+    printf("Dati sirul, apoi apasati <Enter>: ");
+    gets(string);
+
+    if(palindrome_string(string)==1)
+        {
+            printf("Da, este palindrom.");
+            return 0;
+        }
+    else
+        printf("Nu, nu este palindrom.\n");
+
+
+
+    char aux[80];
+    strcpy(aux, string);
+    strcpy(aux, aux+1);
+
+    strrev(aux);
+    strcat(aux, string);
+
+    printf("\nSirul format este: %s", aux);
+
+    if(palindrome_string(aux)==1)
+        {
+            printf("\nDa, este palindrom.");
+            return 0;
+        }
+    else
+        printf("Nu, nu este palindrom.\n\n");
+
+
+    return 0;
+}
