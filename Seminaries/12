@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct Animal
+{
+	int maini,picioare;
+	char nume[20];
+} Animal ;
+
+int main()
+{
+	Animal Caine;
+	Caine.maini = 0;
+	Caine.picioare = 4;
+
+	printf("Un caine are %d maini si %d picioare.", Caine.maini, Caine.picioare);
+
+return 0;
+}
+
