@@ -1,0 +1,72 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int n;
+int matrix[17][17];
+int i,j;
+
+int main()
+{
+    int n;
+    printf("Numarul de linii x coloane este: ");
+    scanf("%d", &n);
+
+    for(i=1; i<=n; i++){
+        for(j=1; j<=n; j++){
+            //zona 1
+            if(i<=4 && j<=4)
+            {
+                if(i==j)
+                    matrix[i][j] = (i-1)*n+j;
+                if(i+j==5)
+                    matrix[i][j] = (i-1)*n+j;
+            }
+            //zona2
+            if(i<=4 && j>=5)
+            {
+                if(j-i==4)
+                    matrix[i][j] = (i-1)*n+j;
+                if(i+j==9)
+                    matrix[i][j] = (i-1)*n+j;
+            }
+            //zona3
+            if(i>=5 &&j<=4)
+            {
+                if(i-j ==4)
+                    matrix[i][j] = (i-1)*n+j;
+                if(i+j==9)
+                    matrix[i][j] = (i-1)*n+j;
+            }
+            //zona 4
+            if(i>=5 && j>=4)
+            {
+                if(i==j)
+                    matrix[i][j] = (i-1)*n+j;
+                if(j-i==3)
+                    matrix[i][j] = (i-1)*n+j;
+            }
+        }
+    }
+
+    for(i=1;i<=n;i++){
+        for(j=1;j<=n;j++)
+            printf("  %d  ", matrix[i][j]);
+        putchar('\n');
+    }
+
+    for(i=1; i<=n; i++){
+        for(j=1; j<=n; j++)
+            if(matrix[i][j]==0)
+                matrix[i][j] = n*n - (i-1)*n - j +1;
+    }
+
+    putchar('\n');
+
+    for(i=1;i<=n;i++){
+        for(j=1;j<=n;j++)
+            printf(" \t%d  ", matrix[i][j]);
+        putchar('\n');
+    }
+
+    return 0;
+}
