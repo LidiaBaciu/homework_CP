@@ -1,0 +1,87 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+/*
+Develop an algorithm to give exact change for a purchase.
+The input is the purchase (in dollars and cents) and the payment value.
+The purchase is in decimal notation.
+The output is the number of U.S. coins and bills.
+Assume that the coins are the penny (1), nickel (5), dime (10), and quarter (25). The bills are the $1, $5, $10, and $20.
+
+Input: $216.70 $300
+Output: 4 of $20, 3 of $1, 1 of $.25, 1 of $.05
+
+*/
+int penny, nickel, dime, quarter;
+int one_dollar, five_dollars, ten_dollars, twenty_dollars;
+
+int main()
+{
+    double change;
+    int payment_value;
+
+    double purchase;
+    printf("The purchase is of: ");
+    scanf("%lf", &purchase);
+
+    printf("The payment value is: ");
+    scanf("%d", &payment_value);
+
+    change = payment_value - purchase;
+
+    printf("The change is: %.2f", change);
+
+    int change_integer;
+    change_integer = change;
+
+    double change_double;
+    change_double = change - change_integer;
+
+    printf("\n Change integer is %d", change_integer);
+
+    printf("\n Change double is %.2f", change_double);
+
+    while(change_integer != 0){
+
+        if(change_integer % 20 == 0){
+            twenty_dollars = change_integer/20;
+            change_integer = change_integer%20;
+        }
+        if(change_integer % 10 == 0){
+            ten_dollars = change_integer/10;
+            change_integer = change_integer%10;
+        }
+        if(change_integer % 5 == 0){
+            five_dollars = change_integer/5;
+            change_integer = change_integer%5;
+        }
+
+        one_dollar ++;
+        change_integer --;
+    }
+
+    printf("\nThe rest given in bills is: %d of 20, %d of 10, %d of 5 and %d of 1. \n ", twenty_dollars, ten_dollars, five_dollars, one_dollar);
+
+    float rounded_down = floorf(change_double * 100) / 100;
+    change_double = rounded_down;
+
+    while(change_double != 0){
+            while(change_double > 0.25){
+                change_double = change_double - 0.25;
+                quarter ++;}
+            while(change_double > 0.10){
+                change_double = change_double - 0.10;
+                dime ++;}
+            while(change > 0.05){
+                change_double = change_double - 0.05;
+                nickel ++;}
+            while(change > 0.01){
+                change_double = change_double - 0.01;
+                penny ++;}
+    }
+
+    printf("\nThe rest given in coins is: %d of 0.25, %d of 0.10, %d of 0.05 and %d of 0.01. \n ", quarter, dime, nickel, penny);
+
+    return 0;
+}
